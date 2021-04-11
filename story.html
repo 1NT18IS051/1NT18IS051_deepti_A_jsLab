@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+          <style>
+           .story{
+             background-color:skyblue;
+              width:300px;
+              visibility:hidden;
+           }
+          </style>
+        
+    </head>
+    <body>
+       
+        <p>Enter your name:</p>
+        <input type="text" placeholder="name" name="Name" id="name">
+        <br><br><input type="button" class="randomize" value="Story">
+        <br><p class="story"></p>
+  
+       
+    </body>
+    <script>
+           var rdmz=document.querySelector(".randomize");
+           var story=document.querySelector(".story");
+
+          let str="Once upon a time there lived a girl called :insertname:. She was very :insertch: . She used to live in :insertpl: with her :insertg:";
+           function randomArrayvalue(array){
+               return array[Math.floor(Math.random() * array.length)];
+           }
+           var insertname=["Kavya","Chloe","Mary","Purnima"];
+           var insertch=["honest","brave","stubborn","kind"];
+           var insertpl=["Mumbai","Vasco","Chennai","Amsterdam"];
+           var insertg=["father","mother","sister"];
+
+           rdmz.addEventListener("click",func);
+           
+           function func(){
+                var name=randomArrayvalue(insertname);
+                var character=randomArrayvalue(insertch);
+                var plc=randomArrayvalue(insertpl);
+                var guard=randomArrayvalue(insertg);
+                 
+                
+
+                var newstr=str;
+                var newstr=newstr.replace(':insertch:',character);
+                var newstr=newstr.replace(':insertpl:',plc);
+                var newstr=newstr.replace(':insertg:',guard);
+                 
+                 
+                  var nme=document.getElementById("name").value;
+                if(nme!=''){
+                  var newstr=newstr.replace(':insertname:',nme);
+                }
+                else{
+                  var newstr=newstr.replace(':insertname:',name);
+                }
+                
+                story.textContent=newstr;
+                story.style.visibility='visible';
+               
+           }
+        </script>
+</html>

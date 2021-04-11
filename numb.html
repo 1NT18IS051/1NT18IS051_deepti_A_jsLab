@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Number</title>
+<script>
+    var min=0;
+    function myfunc(){ 
+    var num=document.getElementById("number").value;
+    var cs=Math.floor((Math.random() * 100) + 1);
+    // generates random number within 10
+    if(min==3)
+{
+    document.write("expected answer "+cs);
+    alert("out of moves");
+}
+     if(num==cs){
+        alert("correct guess"); 
+     }
+     else if(num<cs){
+         alert("number is low");
+         min++;
+     }
+     else{
+         alert("number is high");
+         min++;
+     }
+    
+}
+
+</script>
+</head>
+<body>
+   <h1 >Enter a number from 1 to 100</h1>
+   <p>You have 4 chances</p>
+   <form>
+     <input type="number" id="number" name="number" value="1"><br><br>
+     <input type="button" onclick="myfunc()" value="try it">
+   </form>
+ </body>  
+</html>

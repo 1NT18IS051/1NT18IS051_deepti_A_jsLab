@@ -1,0 +1,12 @@
+caption{
+    float:right;
+    font-size: large;
+    color:red;
+}
+p{
+     color:blue;
+     font-family:'Arial';
+ }
+ body{
+     background-color: aquamarine;
+ }
