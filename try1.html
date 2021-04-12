@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        h1{
+            color:blue;
+            cursor: pointer;
+        }
+        h1:hover{
+            color:crimson;
+        }
+        #head{
+            color:white;
+            font-size: x-large;
+            text-shadow: 2px 2px rgb(22, 20, 20);
+            background-color: rgba(238, 34, 78, 0.322);
+            width:270px;
+            height:30px;
+        }
+        .button{
+            background-color:yellow;
+            border-radius:10px;
+            width:2cm;
+        }
+        .sorted{
+            visibility: hidden;
+            background-color: rgb(77, 195, 211);
+            border-radius: 25px;
+            box-shadow: 5px 5px grey;
+            width:50%;
+            opacity: 0.9;
+            padding-left: 20px;
+            
+        }
+    </style>
+   
+</head>
+<body style="background-color: ivory;">
+   <p id="head">Enter a number or a string</p>
+   <input id="text" type="text" placeholder="number/string"><br><br>
+   <input class="button" type="button" value="submit">
+   <h1 class="display" onclick="disp()">Display</h1>
+   <div class="sorted">
+     <p style="color:green;font-size:0.5cm;"><i>Sorted integer array:</i></p>
+   <p class="arr" id="arr"></p>
+   <p style="color:green;font-size:0.5cm;"><i>Sorted string array:</i></p>
+    <p class="arrst"></p><br>
+   </div>
+   </body>
+    <script src="try2.js"></script>
+   </html>
