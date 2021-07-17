@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <div style="background-color: rgb(141, 121, 253);width: 50%;padding-left: 3cm;">
+   <p> Array elements not conataining e </p>
+   <button onclick="disp1()">Click</button>
+   <p id="value1"></p>
+   </div>
+ 
+   <div style="background-color: rgb(154, 137, 255);width:50%;padding-left: 3cm;">
+    <p> Array elements conataining both n and e </p>
+   <button onclick="disp2()">Click</button>
+   <p id="value2"></p>
+</div>
+
+<div style="background-color: rgb(141, 121, 253);width:50%;padding-left: 3cm;">
+    <p> Array elemnt starting with den or ending with ly </p>
+   <button onclick="disp3()">Click</button>
+   <p id="value3"></p>
+</div>
+<div style="background-color: rgb(167, 154, 250);width:50%;padding-left: 3cm;">
+   <p> Replace hand with x </p>
+   <button onclick="disp4()">Click</button>
+   <p id="value4"></p>
+</div>
+  <div style="background-color: rgb(183, 173, 252);width:50%;padding-left: 3cm;">
+    <p> Replacing all occurrences of removed or reed or received or refused with x </p>
+   <button onclick="disp5()">Click</button>
+   <p id="value5"></p>
+</div>
+ <div style="background-color: rgb(201, 193, 255);width:50%;padding-left: 3cm;">
+   <p> Replacing \\e with e </p>
+   <button onclick="disp6()">Click</button>
+   <p id="value6"></p>
+</div>
+
+   <script>
+      function disp1(){
+        let word = ['goal', 'new', 'user', 'sit', 'eat', 'dinner']
+        var pat=/e/gi
+        const wordf=word.filter(item=>!pat.test(item))
+        document.getElementById("value1").innerHTML=wordf
+      }
+
+      function disp2(){
+        let words = ['goal', 'new', 'user', 'sit', 'eat', 'dinner']
+         var pat1=new RegExp(/^([a-z]*)e([a-z]*)n([a-z]*)$/);
+       var pat2=new RegExp(/^([a-z]*)n([a-z]*)e([a-z]*)$/);
+       var final=new RegExp(pat1.source+ "|" + pat2.source);
+        const wordd=words.filter(item=>final.test(item))
+        document.getElementById("value2").innerHTML=wordd
+      }
+     
+     function disp3(){
+       let words = ['lovely', '1\ndentist', '2 lonely', 'eden', 'fly\n','dent']
+       const pat1=new RegExp(/^den\w*/)
+       const pat2=new RegExp(/\w*ly$/)
+       var final=new RegExp(pat1.source+ "|" + pat2.source);
+       const wordd=words.filter(item=>final.test(item))
+        document.getElementById("value3").innerHTML=wordd
+     }
+   function disp4(){
+     let words = ['handed', 'hand', 'handy', 'unhanded', 'handle', 'hand-2']
+     const patt=/hand/gi
+     patt.compile(patt)
+      const wordd=words.map(item=>item.replace(patt,"x"))
+        document.getElementById("value4").innerHTML=wordd
+   }
+
+   function disp5(){
+     let str="refused reed redo received"
+     const patt=/removed|reed|received|refused/g 
+     document.getElementById("value5").innerHTML=str.replace(patt,"x") 
+   }
+
+      function disp6(){
+       var str=" th\\er\\e ar\\e common asp\\ects among th\\e alt\\ernations"
+       var p=/\\e/g
+       p.compile(p)
+       document.getElementById("value6").innerHTML=str.replace(p,'e')
+      }
+     
+</script>
+</body>
+</html>
