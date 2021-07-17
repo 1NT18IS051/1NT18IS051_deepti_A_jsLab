@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>repl.it</title>
+    <style>
+      body{
+        background-image:url("planet.jpg");
+        background-repeat: no-repeat;
+       background-attachment: fixed;
+        background-size: cover;
+        color:white;
+        font-size:xx-large;
+        padding-left: 30cm;
+        padding-top:2.5cm;
+      }
+      button{
+        height: 1cm;
+        width: 2.4cm;
+        font-size: large;
+        background-color: violet;
+      }
+    </style>
+   
+  </head>
+  <body>
+    <h3 style="color: thistle;">Select a planet</h3>
+    <input type="radio" name="planet" id="mercury">
+     <label for="mercury">Mercury</label><br>
+    <input type="radio" name="planet" id="venus">
+    <label for="venus">Venus</label><br>
+    <input type="radio" name="planet" id="earth">
+    <label for="earth">Earth</label><br>
+    <input type="radio" name="planet" id="mars">
+    <label for="mars">Mars</label><br>
+    <input type="radio" name="planet" id="jupiter">
+    <label for="jupiter">Jupiter</label><br>
+    <input type="radio" name="planet" id="saturn">
+    <label for="saturn">Saturn</label><br>
+    <input type="radio" name="planet" id="uranus">
+    <label for="uranus">Uranus</label><br>
+    <input type="radio" name="planet" id="neptune">
+    <label for="neptune">Neptune</label><br><br>
+    <button onclick="disp()"><b>Display</b></button><br>
+    <div id="result"></div>
+    
+  </body> 
+  <script>
+  function planet(orbitalp,num_moon,ele)
+  {
+    this.orbitalp=orbitalp;
+    this.num_moon=num_moon;
+    this.ele=ele;
+    disp=function(){
+     return `The Planet you selected has orbital period of  ${orbitalp} ,has ${num_moon} moons and is mainly composed of  ${ele} .`
+    }
+  }
+  
+  function disp(){
+    var e=document.getElementsByName("planet");
+    for(i = 0; i < e.length; i++) {
+                if(e[i].checked){
+                  if(e[i].id=="saturn"){
+                    let saturn=new planet("29 years",62,"hydrogen & helium");  
+                document.getElementById("result").innerHTML=disp();
+                  }
+                  else if(e[i].id=="mercury"){
+                     let mercury=new planet("88 days",0,"oxygen");
+                    document.getElementById("result").innerHTML=disp();
+                  }
+                  else if(e[i].id=="venus"){
+                    let venus=new planet("225 days",0,"co2");
+                  document.getElementById("result").innerHTML=disp();
+                  }
+                  else if(e[i].id=="earth"){
+                    let earth=new planet("365 days",1," oxygen");
+                    document.getElementById("result").innerHTML=disp();
+                  }
+                  else if(e[i].id=="mars"){
+                     let mars=new planet("687 days",2,"co2");
+                     document.getElementById("result").innerHTML=disp();
+                  }
+                   else if(e[i].id=="jupiter"){
+                    let jupiter=new planet("12 years",79," hydrogen & helium");
+                    document.getElementById("result").innerHTML=disp();
+                  }
+                   else if(e[i].id=="uranus"){
+                    let uranus=new planet("84 years",27," hydrogen,helium,methane");
+                    document.getElementById("result").innerHTML=disp();
+                  }
+                   else{
+                     let neptune=new planet("165 years",14," hydrogen,helium,methane");
+                     document.getElementById("result").innerHTML=disp();
+ 
+                  }
+                }
+                
+            }
+        }
+
+</script>
+
+    </div>  
+     <footer>
+    </footer> 
+    
+  </body>
+</html>
